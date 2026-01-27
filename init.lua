@@ -4,4 +4,4 @@ require("main.keybinds")
 require("main.buffer")
 
 -- anyting inside "after" should be put below everything else
-require("after.colors")
+require("theme.colors")
