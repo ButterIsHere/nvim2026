@@ -1,4 +1,3 @@
-local set = vim.opt
 
 set.showtabline = 2
 
@@ -21,3 +20,19 @@ function MyTabLine()
 end
 
 set.tabline = '%!v:lua.MyTabLine()'
+
+-- Buffer navigation
+key.set("n", "<S-l>", ":bnext<CR>", { desc = "Move to left window" })
+key.set("n", "<S-h>", ":bprevious<CR>", { desc = "Move to left window" })
+
+-- Close buffer
+key.set("n", "<leader>m", function()
+  if vim.bo.buftype == 'terminal' then
+    vim.cmd('bd!')
+    print("Closed terminal buffer")
+  else
+    vim.cmd('bd')
+    print("Closed buffer")
+  end
+end, { silent = true})
+
