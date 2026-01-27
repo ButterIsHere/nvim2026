@@ -21,6 +21,17 @@ key.set("n", "<C-M-k>", ":resize -2<CR>")
 key.set("n", "<C-M-h>", ":vertical resize +2<CR>")
 key.set("n", "<C-M-l>", ":vertical resize -2<CR>")
 
+-- Terminal
+key.set("n", "<leader>t", function()
+  cmd("split")
+  cmd("wincmd J")
+  cmd("terminal")
+  cmd("startinsert")
+  print("New Terminal")
+end)
+
+key.set("t", "<C-[>", "<C-\\><C-n>")
+
 -- File explorer
 key.set("n", "<leader>po", function()
   cmd("Ex")
@@ -58,10 +69,16 @@ end, { desc = "Telescope Help" })
 key.set("n", "<S-l>", ":bnext<CR>", { desc = "Move to left window" })
 key.set("n", "<S-h>", ":bprevious<CR>", { desc = "Move to left window" })
 
-key.set("n", "<S-d>", function()
-  cmd("bdelete")
-  print("Buffer deleted")
-end)
+-- Close buffer
+key.set("n", "<leader>bd", function()
+  if vim.bo.buftype == 'terminal' then
+    vim.cmd('bd!')
+    print("Closed terminal buffer")
+  else
+    vim.cmd('bd')
+    print("Closed buffer")
+  end
+end, { silent = true})
 
--- insert exit
--- key.set("i", "jk", "<C-[>")
+  -- insert exit
+  -- key.set("i", "jk", "<C-[>")

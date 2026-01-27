@@ -1,5 +1,3 @@
-local key = vim.keymap
-
 -- Everfrost theme
 key.set("n", "<leader>1", function()
   cmd("lua theme('everforest')")
@@ -16,4 +14,10 @@ end)
 key.set("n", "<leader>3", function()
   cmd("lua theme('catppuccin')")
   print("Theme: Catppuccin")
+end)
+
+-- Lackluster theme
+key.set("n", "<leader>4", function()
+  cmd("lua theme('lackluster')")
+  print("Theme: Lackluster")
 end)

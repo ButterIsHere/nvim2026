@@ -59,9 +59,16 @@ require('pckr').add{
     end
   };
 
+  {
+    'github/copilot.vim'
+  };
+
   -- Color schemes
   { 'sainnhe/everforest' };
   { 'Mofiqul/vscode.nvim' };
-  { 'catppuccin/nvim' }
+  { 'catppuccin/nvim' };
+  { 'rose-pine/neovim'};
+  { 'projekt0n/github-nvim-theme'};
+  { 'slugbyte/lackluster.nvim'};
 }
 
