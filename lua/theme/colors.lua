@@ -2,36 +2,41 @@ function theme(color)
 
   local mod = vim.api
 
-  color = color or "everforest"
-  vim.cmd.colorscheme(color)
+  cmd.colorscheme(color or "everforest")
 
-  -- Window transparancy
-  mod.nvim_set_hl(0, "Normal", { bg = "none" })
-  mod.nvim_set_hl(0, "NormalNC", { bg = "none" })
-  mod.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  -- Group everything here. Key = Highlight Group, Value = Table of settings
+  local highlights = {
+    -- Transparency group
+    Normal       = { bg = "none" },
+    NormalNC     = { bg = "none" },
+    SignColumn   = { bg = "none" },
+    StatusLine   = { bg = "none" },
+    StatusLineNc = { bg = "none" },
+    SignColumn   = { bg = "none" },
+    WinBar       = { bg = "none" },
+    WinBarNc     = { bg = "none" },
+    
+    -- Search (needs specific colors/styles)
+    Search       = { bg = "none", fg = "none", underline = true, bold = true },
+    CurSearch    = { bg = "none", fg = "none", underline = true, bold = true },
 
-  -- Remove search background
-  mod.nvim_set_hl(0, "Search", { bg = "none", fg = "none", underline = true, bold = true })
-  mod.nvim_set_hl(0, "CurSearch", { bg = "none", fg = "none", underline = true, bold = true })
+    -- Line Numbers (your specific colors)
+    LineNr       = { bg = "none", fg = "#505050" },
+    CursorLineNr = { bg = "none", fg = "#ffffff" },
 
-  -- StatusLine
-  mod.nvim_set_hl(0, "StatusLine", { bg = "none", fg = "none", })
-  mod.nvim_set_hl(0, "StatusLineNc", { bg = "none", fg = "none", })
+    -- StatusLine
+    StatusLine   = { bg = "none", fg = "none" },
+    
+    -- Buffer/Tabs (unique backgrounds)
+    TabLine      = { bg = "none", fg = "none", italic = true },
+    TabLineFill  = { bg = "none", fg = "none" },
+    TabLineSel   = { bg = "#3c4841", fg = "none", underline = true, bold = true },
+  }
 
-  -- Winbar 
-  mod.nvim_set_hl(0, "WinBar", { bg = "none"})
-  mod.nvim_set_hl(0, "WinBarNC", { bg = "none"})
-
-  -- Transparency for line numbers and the sign column (gutter)
-  mod.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#505050" })
-  mod.nvim_set_hl(0, "CursorLineNr", { bg = "none", fg = "#ffffff" })
-  mod.nvim_set_hl(0, "SignColumn", { bg = "none" })
-
-  -- Buffer
-  mod.nvim_set_hl(0, "TabLine", { bg = "none", fg = "none", italic = true })
-  mod.nvim_set_hl(0, "TabLineFill", { bg = "none", fg = "none" })
-  mod.nvim_set_hl(0, "TabLineSel", { bg = "#3c4841", fg = "none", underline = true, bold = true })
-
+  -- Loop it
+  for object, settings in pairs(highlights) do
+    mod.nvim_set_hl(0, object, settings)
+  end
 end
 
 theme()

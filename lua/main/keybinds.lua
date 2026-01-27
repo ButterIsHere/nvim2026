@@ -1,15 +1,11 @@
-vim.g.mapleader = " "
-
-local key = vim.keymap -- set vim.keymap as "bind"
-
 -- Window split
 key.set("n", "<leader><S-v>", function()
-  vim.cmd("vsplit")
+  cmd("vsplit")
   print("New vertical split")
 end)
 
 key.set("n", "<leader><S-h>", function()
-  vim.cmd("split")
+  cmd("split")
   print("New vertical split")
 end)
 
@@ -27,7 +23,7 @@ key.set("n", "<C-M-l>", ":vertical resize -2<CR>")
 
 -- File explorer
 key.set("n", "<leader>po", function()
-  vim.cmd("Ex")
+  cmd("Ex")
   print("Files")
 end)
 
@@ -63,17 +59,9 @@ key.set("n", "<S-l>", ":bnext<CR>", { desc = "Move to left window" })
 key.set("n", "<S-h>", ":bprevious<CR>", { desc = "Move to left window" })
 
 key.set("n", "<S-d>", function()
-  vim.cmd("bdelete")
+  cmd("bdelete")
   print("Buffer deleted")
 end)
 
 -- insert exit
 -- key.set("i", "jk", "<C-[>")
-
-
-
-
-
-
-
-

@@ -23,9 +23,9 @@ require('pckr').add{
     run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
-	ensure_installed = { "lua", "vim", "vimdoc", "javascript", "python" },
-	highlight = { enable = true },
-	indent = { enable = true },
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "python" },
+        highlight = { enable = true },
+        indent = { enable = true },
       })
     end
   };
@@ -37,6 +37,14 @@ require('pckr').add{
   };
 
   -- Quality of life
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  };
+
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -52,14 +60,8 @@ require('pckr').add{
   };
 
   -- Color schemes
-  {
-    'sainnhe/everforest', config = function()
-      vim.cmd.colorscheme('everforest')
-    end
-  };
-
-  {
-    'windwp/nvim-autopairs'
-  }
+  { 'sainnhe/everforest' };
+  { 'Mofiqul/vscode.nvim' };
+  { 'catppuccin/nvim' }
 }
 
