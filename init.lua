@@ -15,3 +15,4 @@ require("theme.colors")
 require("theme.theme")
 
 require("plugins.telescope")
+require("plugins.gitsigns")

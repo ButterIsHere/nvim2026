@@ -26,7 +26,7 @@ key.set("n", "<S-l>", ":bnext<CR>", { desc = "Move to left window" })
 key.set("n", "<S-h>", ":bprevious<CR>", { desc = "Move to left window" })
 
 -- Close buffer
-key.set("n", "<leader>m", function()
+key.set("n", "<leader>M", function()
   if vim.bo.buftype == 'terminal' then
     vim.cmd('bd!')
     print("Closed terminal buffer")

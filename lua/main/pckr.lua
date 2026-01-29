@@ -59,9 +59,7 @@ require('pckr').add{
     end
   };
 
-  {
-    'github/copilot.vim'
-  };
+  { 'github/copilot.vim' };
 
   -- Color schemes
   { 'sainnhe/everforest' };

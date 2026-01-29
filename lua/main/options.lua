@@ -1,5 +1,3 @@
-local set = vim.opt
-
 -- Numbering
 set.number = true
 set.relativenumber = true

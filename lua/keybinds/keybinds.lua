@@ -29,5 +29,16 @@ key.set("n", "<leader>po", function()
   print("Files")
 end)
 
+-- Vim.opt 
+key.set("n", "<leader>-", function()
+  cmd("set sw=2")
+  print("Shiftwidth set to 2")
+end)
+
+key.set("n", "<leader>=", function()
+  cmd("set sw=4")
+  print("Shiftwidth set to 4")
+end)
+
   -- insert exit
   -- key.set("i", "jk", "<C-[>")
