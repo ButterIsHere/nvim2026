@@ -16,6 +16,7 @@ require("theme.theme")
 
 require("plugins.telescope")
 require("plugins.gitsigns")
+--require("plugins.avante")
 
 if vim.fn.has("win32") == 1 then
     -- Use 'pwsh' if available, otherwise fall back to 'powershell'

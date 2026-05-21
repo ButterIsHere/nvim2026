@@ -17,24 +17,46 @@ end
 bootstrap_pckr()
 
 require('pckr').add{
-  {
+{
     -- Essentials
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    -- Modern pckr function format to reliably trigger updates
+    run = function()
+      vim.cmd('TSUpdate')
+    end,
     config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "python" },
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
+      -- Just define which parsers you want installed. 
+      -- Neovim handles the highlighting and module loading natively now!
+      vim.g.nvim_treesitter_ensure_installed = { 
+        "css", "html", "lua", "vim", "vimdoc", "javascript", "python",
+        "rust", "go"
+      }
     end
   };
 
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    --tag = '0.1.5',
     dependencies = {'nvim-lua/plenary.nvim'}
   };
+
+  -- AI
+  -- {
+  --   'yetone/avante.nvim',
+  --   -- Cross-platform build step: Uses PowerShell on Windows, 'make' on Linux/macOS
+  --   run = function()
+  --     if vim.fn.has('win32') == 1 then
+  --       vim.fn.system('powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false')
+  --     else
+  --       vim.fn.system('make')
+  --     end
+  --   end
+  -- };
+  -- 'stevearc/dressing.nvim';
+  -- 'nvim-lua/plenary.nvim';
+  -- 'MunifTanjim/nui.nvim';
+  -- 'HakonHarnes/img-clip.nvim';        -- Handles rich layout elements for Avante
+  -- 'nvim-tree/nvim-web-devicons';     -- Provides UI icons for Telescope, Dressing, and Avante
 
   -- Quality of life
   {
@@ -69,4 +91,3 @@ require('pckr').add{
   { 'projekt0n/github-nvim-theme'};
   { 'slugbyte/lackluster.nvim'};
 }
-
