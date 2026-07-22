@@ -30,3 +30,10 @@ if vim.fn.has("win32") == 1 then
     vim.opt.shellxquote = ""
 end
 
+-- ~/.config/nvim/ftdetect/mr.lua (or inside your init.lua)
+vim.filetype.add({
+  extension = {
+    mr = 'c', -- Treats .mr files with C-style syntax highlighting
+  },
+})
+
